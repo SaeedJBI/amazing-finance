@@ -1,0 +1,12 @@
+# Node
+frontend/amazing-finance/node_modules/
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+# Environment Variables
+.env
+*.env
+# OS junk
+.DS_Store
+Thumbs.db

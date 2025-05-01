@@ -1,0 +1,37 @@
+# === Python (Backend) ===
+backend/venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+backend/.env
+backend/.env.*
+
+# === Node (Frontend) ===
+frontend/amazing-finance/node_modules/
+frontend/amazing-finance/dist/
+frontend/amazing-finance/.env
+frontend/amazing-finance/.env.*
+
+# === Logs ===
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# === OS-generated files ===
+.DS_Store
+Thumbs.db
+
+# === Editor/IDE Settings ===
+.vscode/
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
