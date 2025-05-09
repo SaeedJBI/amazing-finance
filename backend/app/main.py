@@ -1,8 +1,11 @@
 # backend/app/main.py
 from fastapi import FastAPI
+from app.routers import doctors, patients, consultations, payments
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"message": "Amazing Finance backend is running"}
+# Include the doctor router
+app.include_router(doctors.router)
+app.include_router(patients.router)
+app.include_router(consultations.router)
+app.include_router(payments.router)

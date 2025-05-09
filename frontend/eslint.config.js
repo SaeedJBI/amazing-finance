@@ -1,3 +1,12 @@
+
+/**
+ * @file eslint.config.js
+ * @description This file contains the ESLint configuration for the Amazing Finance frontend project.
+ * It sets up rules, plugins, and language options for linting JavaScript and JSX files.
+ * The configuration includes support for React hooks, React Refresh, and browser-specific globals.
+ * It also customizes certain rules, such as ignoring unused variables that match a specific pattern.
+ * # Linter config
+ */
 import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'

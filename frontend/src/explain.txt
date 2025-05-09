@@ -1,0 +1,8 @@
+All your React source code goes here
+
+│   ├── assets/              # Images, logos, etc.
+│   │   └── react.svg
+│   ├── App.css              # App-level styles
+│   ├── App.jsx              # Main component - you’ll customize this
+│   ├── index.css            # Global styles
+│   ├── main.jsx             # Entry point (bootstraps App.jsx)
