@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from 'react-router-dom';
+import NavBar from './components/navBar';
+
+import Doctors from './Pages/Doctors';
+import Patients from './Pages/Patients';
+import Consultations from './Pages/Consultations';
+import Payments from './Pages/Payments';
+import AddDoctor from './Pages/AddDoctor';
+import AddPatient from './Pages/AddPatient';
+import AddConsultation from './Pages/AddConsultation';
+import AddPayment from './Pages/AddPayment';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <NavBar />
+
+      <main style={{ padding: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
+        <Routes>
+          <Route path="/doctors" element={<Doctors />} />
+          <Route path="/patients" element={<Patients />} />
+          <Route path="/consultations" element={<Consultations />} />
+          <Route path="/payments" element={<Payments />} />
+          <Route path="/doctors/add" element={<AddDoctor />} />
+          <Route path="/patients/add" element={<AddPatient />} />
+          <Route path="/consultations/add" element={<AddConsultation />} />
+          <Route path="/payments/add" element={<AddPayment />} />
+        </Routes>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
+// This code defines the main application component for a React application. It imports the necessary components and sets up routing using React Router. The Navbar component is displayed at the top, and the main content area is defined with padding and a maximum width. The Routes component defines different routes for the application, each rendering a specific page (Doctors, Patients, Consultations, Payments) when the corresponding path is accessed. The App component is exported for use in other parts of the application.

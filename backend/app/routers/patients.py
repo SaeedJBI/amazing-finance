@@ -1,6 +1,6 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.crud import create_patient, get_patients
+from app.crud import create_patient, get_patients, get_patient
 from app.schemas import PatientCreate, Patient
 from app.database import SessionLocal
 from typing import List
@@ -24,3 +24,11 @@ def add_patient(patient: PatientCreate, db: Session = Depends(get_db)):
 @router.get("/patients/", response_model=List[Patient])
 def read_patients(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return get_patients(db=db, skip=skip, limit=limit)
+
+# Get a single patient by ID
+@router.get("/patients/{patient_id}", response_model=Patient)
+def read_patient(patient_id: int, db: Session = Depends(get_db)):
+    patient = get_patient(db, patient_id=patient_id)
+    if patient is None:
+        raise HTTPException(status_code=404, detail="Patient not found")
+    return patient

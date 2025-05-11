@@ -16,6 +16,8 @@ def create_doctor(db: Session, doctor: DoctorCreate):
 def get_doctors(db: Session, skip: int = 0, limit: int = 100):
     return db.query(Doctor).offset(skip).limit(limit).all()
 
+def get_doctor(db: Session, doctor_id: int):
+    return db.query(Doctor).filter(Doctor.id == doctor_id).first()
 
 # ---------------------------
 # Patient CRUD Operations
@@ -30,7 +32,8 @@ def create_patient(db: Session, patient: PatientCreate):
 def get_patients(db: Session, skip: int = 0, limit: int = 100):
     return db.query(Patient).offset(skip).limit(limit).all()
 
-
+def get_patient(db: Session, patient_id: int):
+    return db.query(Patient).filter(Patient.id == patient_id).first()
 # ---------------------------
 # Consultation CRUD Operations
 # ---------------------------

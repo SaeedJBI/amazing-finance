@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
-from datetime import date
+from datetime import datetime, date
 
 # ---------------------------
 # Doctor Schema
@@ -72,6 +72,7 @@ class PaymentBase(BaseModel):
     amount_paid: float
     commission_value: float
     doctor_receives: float
+    created_at: datetime
 
 class PaymentCreate(PaymentBase):
     pass
@@ -81,3 +82,6 @@ class Payment(PaymentBase):
 
     class Config:
         from_attributes  = True
+        json_encoders = {
+            datetime: lambda v: v.isoformat()
+        }
